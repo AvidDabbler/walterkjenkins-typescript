@@ -1,4 +1,4 @@
-import { Contact } from "./Contact";
+import { Articles } from "./Articles";
 import { Header } from "./Header";
 import { Services } from "./Services";
 import { Signature } from "./Signature";
@@ -7,8 +7,8 @@ import { Projects} from './Projects'
 
 
 export {
+	Articles,
 	BackgroundMap,
-	Contact,
 	Header,
 	Services,
 	Signature,

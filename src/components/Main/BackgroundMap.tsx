@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FeedMessage } from "../../controllers/gtfs-realtime.browser.proto.js";
 import "mapbox-gl/dist/mapbox-gl.css";
-import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl, { GeoJSONSource, Map } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import Pbf from "pbf";
 import { GeoJSON } from "geojson";
 
-
 var pburl =
-"https://www.metrostlouis.org/RealTimeData/StlRealTimeVehicles.pb?cacheBust=" +
-new Date().valueOf();
+	"https://www.metrostlouis.org/RealTimeData/StlRealTimeVehicles.pb?cacheBust=" +
+	new Date().valueOf();
 
 // converts data to geojson
 // mapbox example: https://docs.mapbox.com/help/data/stations.geojson
@@ -21,52 +20,55 @@ const geoData = (d: any) => {
 				coordinates: [
 					el.vehicle.position.longitude,
 					el.vehicle.position.latitude,
-				]
+				],
 			},
 			properties: {
 				id: el.vehicle.vehicle.id,
-			}
+			},
 		};
 	});
 
 	return {
 		type: "FeatureCollection",
-		features
+		features,
 	};
 };
 
-
 export const BackgroundMap = () => {
 	const initialState = {
-			loaded: false,
-			lng: -90.280318,
-			lat: 38.6447868,
-			zoom: 10.9,
-			map: [],
-			width: window.innerWidth,
-			height: window.innerHeight
+		loaded: false,
+		lng: -90.280318,
+		lat: 38.6447868,
+		zoom: 10.9,
+		map: [],
+		width: window.innerWidth,
+		height: window.innerHeight,
 	};
 
 	const [state, setState] = useState(initialState);
-	const [map, setMap] = useState<any>(null)
-	const mapRef = useRef
+	const [map, setMap] = useState<Map | undefined>(undefined);
 
 	// initialize the map
 	useEffect(() => {
-    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
-    ? process.env.REACT_APP_MAPBOX_TOKEN
-    : "";
+		mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
+			? process.env.REACT_APP_MAPBOX_TOKEN
+			: "";
 
 		const map = new mapboxgl.Map({
-			container: 'mapRef',
+			container: "mapRef",
 			style: "mapbox://styles/walterj/ckb1lvnmk06y11ilx1sf3uctj",
 			center: [state.lng, state.lat],
 			zoom: state.zoom,
 			interactive: false,
 		});
-		setMap(map)
+		setMap(map);
+	}, []); // eslint-disable-line
+	
+	useEffect(() => {
+		if(!map) return 
 		getAndLoad();
-  }, []) // eslint-disable-line
+		
+	}, [map])
 
 	// start of helper functions
 	const getData = async () => {
@@ -87,7 +89,8 @@ export const BackgroundMap = () => {
 		}
 	};
 
-	const addSource = (geoJson: GeoJSON) => {
+	const addSource = (geoJson: any) => {
+		if(!map) return
 		map.addSource(`vehicles`, {
 			type: "geojson",
 			data: geoJson,
@@ -95,6 +98,8 @@ export const BackgroundMap = () => {
 	};
 
 	const addLayer = () => {
+		if(!map) return
+
 		map.addLayer({
 			id: "vehicles",
 			type: "circle",
@@ -102,7 +107,7 @@ export const BackgroundMap = () => {
 			paint: {
 				"circle-color": "#f06543",
 				"circle-radius": 2.8,
-			}
+			},
 		});
 	};
 
@@ -116,24 +121,26 @@ export const BackgroundMap = () => {
 	// ! this function should be run on an interval
 
 	const updateData = () => {
-		getData().then((data) => {
-			map.getSource("vehicles").setData(data);
+		if(!map) return
+
+		getData().then((data: any) => {
+			(map.getSource("vehicles") as GeoJSONSource).setData(data);
 		});
 	};
 
 	const getAndLoad = async () => {
-		const geojson: any = await getData()
-		loadData(geojson);
-		setInterval(() => updateData(), 5000);
+		getData().then((geojson: any)=>{
+			loadData(geojson);
+		}).then(data=> {
+			setInterval(() => updateData(), 5000);
+		})
 	};
 	// end of builder functions
 
-		return (
-			<div
-			style={{width: state.width, height: state.height}}
-				id="mapRef"
-				className="mapContainer h80 w-100"
-				></div>
-		);
-	}
-
+	return (
+		<div
+			style={{ width: state.width, height: state.height }}
+			id="mapRef"
+			className="mapContainer h80 w-100"></div>
+	);
+};

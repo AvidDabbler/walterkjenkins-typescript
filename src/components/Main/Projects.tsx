@@ -32,7 +32,7 @@ export const Projects = () => {
 			},
 		],
 	};
-	const [state, setState] = useState(initialState);
+	const [state, setState] = useState(initialState); // eslint-disable-line
 
 	const tags = (tags: Array<string>) => {
 		return tags.map((tag) => (
@@ -44,7 +44,7 @@ export const Projects = () => {
 
 	const projectsList = () => {
 		let data = state.projectData;
-		let filtered = data.filter((el) => el.front == true);
+		let filtered = data.filter((el) => el.front === true);
 		return filtered.map((el) => (
 			<div id={el.name} className="w-100 flex flex-row blue-div br3 mb3 pa3">
 				<div className=" white helvetica tl w-100 w-75-m w-75-l flex flex-column mr1">
@@ -52,7 +52,7 @@ export const Projects = () => {
 					<p className="mt0">{el.desc}</p>
 				</div>
 				<div className="project-side center w-20 flex ml2">
-					<img src={el.language}></img>
+					<img src={el.language} alt='language'></img>
 					<div className="project-tags flex">{tags(el.tags)}</div>
 				</div>
 				<a href={"https://github.com/AvidDabbler/" + el.name}>
