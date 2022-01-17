@@ -22,7 +22,7 @@ const App = () => (
 			<Header />
 		</div>
 
-		<div id="map" className="mapContainer w-100">
+		<div id="map" className="mapContainer w-100 fixed">
 			{/* <BackgroundMap className="mapContainer w-100" /> */}
 			<BackgroundMap />
 		</div>

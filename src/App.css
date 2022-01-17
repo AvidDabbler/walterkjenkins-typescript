@@ -40,3 +40,26 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-header{
+  background-color: rgba(26,48,63,0.8);
+  color: #f06543;
+}
+
+.mapContainer{
+  z-index: -1;
+}
+
+.signature {
+  top: 250px;
+  padding-left: 20px;
+  height: 100%;
+  position: relative;
+}
+
+.vehicle-marker{
+  /* background-image: url('./assets/vehicleMarker.svg'); */
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
