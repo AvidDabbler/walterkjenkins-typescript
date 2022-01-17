@@ -6,61 +6,40 @@ import Github from "./assets/github.svg";
 import Email from "./assets/email2.svg";
 import Linkedin from "./assets/linkedin2.svg";
 
-import {
-	Articles,
-	BackgroundMap,
-	Header,
-	Projects,
-	Services,
-	Signature,
-} from "./components/Main";
+import { BackgroundMap, Header, About, Signature } from "./components/Main";
 
 const App = () => (
-	<div id="app" className="w-100">
-		<div className=" w-100 zi100">
-			{/* <Header className="h60 w-100" /> */}
-			<Header />
-		</div>
+	<div>
+		<div id="app" className="w-100">
+			<div className=" w-100 zi100">
+				{/* <Header className="h60 w-100" /> */}
+				<Header />
+			</div>
 
-		<div id="map" className="mapContainer w-100 fixed">
-			{/* <BackgroundMap className="mapContainer w-100" /> */}
-			<BackgroundMap />
-		</div>
+			<div id="map" className="mapContainer w-100">
+				{/* <BackgroundMap className="mapContainer w-100" /> */}
+				<BackgroundMap />
+			</div>
 
-		<Signature />
+			<Signature />
 
-		<div
-			id="services"
-			className="center blue-div br3 pa4 flex w-80 w-70-m flex-row center v-mid h6 justify-around mb4">
-			<Services />
+			<About />
 		</div>
-
-		<div
-			id="blog"
-			className="center blue-div br3 pa4 flex w-80 w-70-m flex-row center v-mid h6 justify-around mb4">
-			<Articles />
-		</div>
-
-		<div
-			id="projects"
-			className="center blue-div br3 pa4 flex w-80 w-70-m flex-row center v-mid h6 justify-around mb4">
-			<Projects />
-		</div>
-		<div
-			id="contact"
-			className="center blue-div br3 pa4 flex w-80 w-70-m flex-row center v-mid h6 justify-around mb4">
-			<div id="contact_div" className="w-80 center justify-around">
-				<a href="mailto:walter.k.jenkins@gmail.com" className="icon flex w-20">
-					<img src={Email} />
+		{/* <div id="contact" className="blue-div mx-auto w-full">
+			<div
+				id="contact_div"
+				className="w-1/4 flex flex-row ml-auto justify-around">
+				<a href="https://twitter.walterkjenkins.com" className="w-12">
+					<img src={Email} className="w-12" />
 				</a>
-				<a href="git.walterkjenkins.com" className="icon flex w-20">
-					<img src={Github} />
+				<a href="git.walterkjenkins.com" className="w-12">
+					<img src={Github} className="w-12" />
 				</a>
-				<a href="linkedin.walterkjenkins.com" className="icon flex w-20">
-					<img src={Linkedin} />
+				<a href="linkedin.walterkjenkins.com" className="w-12">
+					<img src={Linkedin} className="w-12" />
 				</a>
 			</div>
-		</div>
+		</div> */}
 	</div>
 );
 

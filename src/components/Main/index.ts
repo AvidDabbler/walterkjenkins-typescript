@@ -4,6 +4,7 @@ import { Services } from "./Services";
 import { Signature } from "./Signature";
 import { BackgroundMap } from "./BackgroundMap";
 import { Projects} from './Projects'
+import { About} from './About'
 
 
 export {
@@ -12,5 +13,6 @@ export {
 	Header,
 	Services,
 	Signature,
-	Projects
+	Projects,
+	About
 }
