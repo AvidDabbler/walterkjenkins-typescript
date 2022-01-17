@@ -91,7 +91,7 @@ export const BackgroundMap = () => {
 
 	const addSource = (geoJson: any) => {
 		if (!map) return;
-		const size = 30;
+		const size = 50;
 		let context: any;
 		const pulsingDot = {
 			width: size,
@@ -109,11 +109,11 @@ export const BackgroundMap = () => {
 
 			// Call once before every frame where the icon will be used.
 			render: function () {
-				const duration = 2000;
+				const duration = 1500;
 				const t = (performance.now() % duration) / duration;
 
 				const radius = (size / 2) * 0.2;
-				const outerRadius = (size / 1.5) * 0.7 * t + radius;
+				const outerRadius = (size / 1.5) * 0.4 * t + radius;
 
 				// Draw the outer circle.
 				context.clearRect(0, 0, this.width, this.height);
@@ -125,7 +125,7 @@ export const BackgroundMap = () => {
 					0,
 					Math.PI * 2,
 				);
-				context.fillStyle = `rgba(255, 200, 200, ${1 - t})`;
+				context.fillStyle = `rgba(255, 200, 200, 0.2)`;
 				context.fill();
 
 				// Draw the inner circle.
