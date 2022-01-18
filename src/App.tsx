@@ -1,6 +1,6 @@
 // react
 import React from "react";
-import "./App.css";
+import "./App.scss";
 
 import Github from "./assets/github.svg";
 import Email from "./assets/email2.svg";
@@ -10,20 +10,18 @@ import { BackgroundMap, Header, About, Signature } from "./components/Main";
 
 const App = () => (
 	<div>
-		<div id="app" className="w-100">
+		<div id="app" className="w-100 h-screen">
 			<div className=" w-100 zi100">
 				{/* <Header className="h60 w-100" /> */}
 				<Header />
 			</div>
 
-			<div id="map" className="mapContainer w-100">
+			<div id="map" className="mapContainer w-100 fixed">
 				{/* <BackgroundMap className="mapContainer w-100" /> */}
 				<BackgroundMap />
 			</div>
 
 			<Signature />
-
-			<About />
 		</div>
 		{/* <div id="contact" className="blue-div mx-auto w-full">
 			<div
@@ -40,6 +38,7 @@ const App = () => (
 				</a>
 			</div>
 		</div> */}
+		<About />
 	</div>
 );
 

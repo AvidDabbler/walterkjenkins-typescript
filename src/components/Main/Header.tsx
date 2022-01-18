@@ -7,7 +7,7 @@ export const Header = () => {
 				<a className="link mh3 f6" data-value="services" href="#services">
 					Services
 				</a>
-				<a className="link mh3 f6" data-value="blog" href="#blog">
+				<a className="link mh3 f6" data-value="blog" href="/blog">
 					Blog
 				</a>
 				<a className="link mh3 f6" data-value="projects" href="#projects">

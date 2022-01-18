@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export function About() {
-	return (
-		<div>
-			
-		</div>
-	)
+	return <div className="w-full h-screen bg-slate-500 bg-opacity-90"></div>;
 }
