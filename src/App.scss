@@ -132,9 +132,10 @@ body {
 	height: 100%;
 	position: absolute;
 }
+
 .signature h2 {
 	font-family: "Pacifico", cursive;
-	padding: 15px 0 0 120px;
+	// padding: 15px 0 0 120px;
 	margin: 0;
 	color: var(--white);
 	text-shadow: -2px -2px 0 #213d50, 2px -2px 0 #213d50, -2px 2px 0 #213d50,
@@ -199,6 +200,34 @@ body,
 	float: right;
 }
 
+.bg-blue {
+	background-color: #0f1b3d;
+	opacity: 95%;
+}
+
+.bg-orange {
+	background-color: #f06543;
+	opacity: 65%;
+}
+
+.topo {
+	background-repeat: repeat;
+  background-attachment: fixed;
+	background-image: url("./assets/topography.svg");
+}
+
+.signup {
+	bottom: 40px;
+	right: 20px;
+}
+.signup:hover {
+	transition: all ease-in-out 0.5s;
+	opacity: 100%;
+	svg {
+		height: 60px;
+	}
+}
+
 @media screen and (max-width: 480px) {
 	.signature h1 {
 		font-size: 80px;
@@ -206,7 +235,6 @@ body,
 	}
 	.signature h2 {
 		font-size: 30px;
-		margin-left: -110px;
 	}
 	.project-side {
 		width: 100%;
@@ -221,7 +249,4 @@ body,
 		flex-direction: column;
 		float: right;
 	}
-	/* #contact {
-    height: 300px;
-  } */
 }

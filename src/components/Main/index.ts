@@ -3,9 +3,9 @@ import { Header } from "./Header";
 import { Services } from "./Services";
 import { Signature } from "./Signature";
 import { BackgroundMap } from "./BackgroundMap";
-import { Projects} from './Projects'
-import { About} from './About'
-
+import { Projects } from "./Projects";
+import { About } from "./About";
+import { SignupButton } from "./SignupButton";
 
 export {
 	Articles,
@@ -14,5 +14,6 @@ export {
 	Services,
 	Signature,
 	Projects,
-	About
-}
+	About,
+	SignupButton,
+};
