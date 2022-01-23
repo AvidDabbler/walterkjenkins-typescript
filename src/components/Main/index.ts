@@ -8,6 +8,7 @@ import { About } from "./About";
 import { SignupButton } from "./SignupButton";
 import { Article } from "./Article";
 import { Lessons } from "./Lessons";
+import { BlogPost } from "./BlogPost";
 
 export {
 	Article,
@@ -20,4 +21,5 @@ export {
 	About,
 	SignupButton,
 	Lessons,
+	BlogPost,
 };

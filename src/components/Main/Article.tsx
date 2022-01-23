@@ -1,15 +1,15 @@
 import React from "react";
-import { kebabCase } from "lodash";
 import { ArticleType } from "../../types";
+import { Link } from "react-router-dom";
 
 export function Article({ article }: { article: ArticleType }) {
 	const { id, tags, name } = article;
 	return (
 		<div className="p-2 pt-4 mr-6 lessons border-b-2">
 			<h3 className="text-xl">
-				<a className="link" href={`https://band-patella-c09.notion.site/${name.replaceAll(' ', '-')}-${id.replaceAll('-','')}`}>
+				<Link className="link" to={`/blog/${id.replaceAll('-','')}`}>
 					{name}
-				</a>
+				</Link>
 			</h3>
 			<div className="">
 			<div className="flex  flex-wrap">

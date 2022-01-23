@@ -9,6 +9,7 @@ export interface LessonType {
 	path: string[];
 	name:            string;
 }
+
 export interface ArticleType {
 	id:              string;
 	tags:            string[];
@@ -21,9 +22,12 @@ export interface ArticleType {
 	name:            string;
 }
 
-
 export interface SelectOption {
 	value: string | number;
 	label: string | number;
 	color: string;
+}
+
+export interface BlogPostType {
+	id: string;
 }

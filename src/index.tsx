@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
 import { Blog, FreeLessons } from "./pages";
+import { BlogPost } from "./components/Main";
 
 import "./index.css";
 
@@ -12,6 +13,7 @@ ReactDOM.render(
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="/blog" element={<Blog />} />
+			<Route path="/blog/:id" element={<BlogPost />} />
 			<Route path="/free-lessons" element={<FreeLessons />} />
 		</Routes>
 	</HashRouter>,

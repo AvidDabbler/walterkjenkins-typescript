@@ -3,6 +3,7 @@ import { appContext } from "../../context";
 import { Article } from ".";
 import { Link } from "react-router-dom";
 import { LessonType } from "../../types";
+import { Header } from ".";
 
 export function Articles() {
 	const { articles, setArticles } = useContext(appContext);
@@ -21,7 +22,9 @@ export function Articles() {
 
 	return (
 		<div className="my-auto h-full">
+
 			<div className="bg-orange h-px"></div>
+			<Header />
 			<div className="flex flex-col w-full h-full min-h-screen bg-blue topo items-center pt-14 text-white mp-14">
 				<div className="my-14">
 					<h1 className="text-3xl">Blog</h1>

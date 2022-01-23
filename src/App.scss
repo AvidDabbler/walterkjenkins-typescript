@@ -247,6 +247,17 @@ body,
 	}
 }
 
+.notion{
+	color:white;
+	.notion-page-header{
+		font-size: xx-large;
+	}
+}
+
+.footer{
+	bottom: 0;
+}
+
 
 @media screen and (max-width: 480px) {
 	.signature h1 {
