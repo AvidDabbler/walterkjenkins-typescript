@@ -1,8 +1,8 @@
 import React from "react";
 import { snakeCase } from "lodash";
-import { Lesson } from "../../types";
+import { LessonType } from "../../types";
 
-export function Article({ article }: { article: Lesson }) {
+export function Article({ article }: { article: LessonType }) {
 	const { author, link, name, tags, file_under, path } = article;
 	return (
 		<div className="p-2 pt-4 mr-6 lessons border-b-2">

@@ -1,4 +1,4 @@
-export interface Lesson {
+export interface LessonType {
 	id:              string;
 	tags:            string[];
 	link:            string;

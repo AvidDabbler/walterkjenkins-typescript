@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { appContext } from "../../context";
 import { Article } from ".";
 import { Link } from "react-router-dom";
-import { Lesson } from "../../types";
+import { LessonType } from "../../types";
 
 export function Articles() {
 	const { articles, setArticles } = useContext(appContext);
@@ -29,7 +29,7 @@ export function Articles() {
 						<Link to="/free-lessons">Free Lessons</Link>
 					</div>
 					{articles.length > 0
-						? articles.map((el: Lesson) => <Article article={el} />)
+						? articles.map((el: LessonType) => <Article article={el} />)
 						: "loading..."}
 				</div>
 			</div>

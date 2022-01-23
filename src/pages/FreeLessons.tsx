@@ -3,10 +3,10 @@ import { AppProvider } from "../context";
 import { SignupButton, Header, Lessons } from "../components/Main";
 
 export default function Blog() {
-	const [articles, setArticles] = useState<any>([]);
+	const [lessons, setLessons] = useState<any>([]);
 
 	return (
-		<AppProvider value={{ articles, setArticles }}>
+		<AppProvider value={{ lessons, setLessons }}>
 			<div>
 				<Header />
 				<Lessons />
