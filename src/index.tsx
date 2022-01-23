@@ -1,19 +1,20 @@
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
-import { Blog } from "./pages";
+import { Blog, FreeLessons } from "./pages";
 
 import "./index.css";
 
 ReactDOM.render(
-	<BrowserRouter>
+	<HashRouter>
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="/blog" element={<Blog />} />
+			<Route path="/free-lessons" element={<FreeLessons />} />
 		</Routes>
-	</BrowserRouter>,
+	</HashRouter>,
 	document.getElementById("root"),
 );
 

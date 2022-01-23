@@ -1,3 +1,4 @@
 import Blog from "./Blog";
+import FreeLessons from "./FreeLessons";
 
-export { Blog };
+export { Blog, FreeLessons };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppProvider } from "../context";
-import { SignupButton, Header, Articles } from "../components/Main";
+import { SignupButton, Header, Lessons } from "../components/Main";
 
 export default function Blog() {
 	const [articles, setArticles] = useState<any>([]);
@@ -9,7 +9,7 @@ export default function Blog() {
 		<AppProvider value={{ articles, setArticles }}>
 			<div>
 				<Header />
-				<Articles />
+				<Lessons />
 				<SignupButton />
 			</div>
 		</AppProvider>

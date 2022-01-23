@@ -228,6 +228,26 @@ body,
 	}
 }
 
+.web_development{
+	background-color: #427aa1;
+}
+.analysis_automation{
+	background-color: #42a179;
+}
+.cartography{
+	background-color: #8342a1;
+}
+
+.lessons{
+	.bg-orange{
+		opacity: 1;
+	}
+	.link:hover{
+		text-decoration: underline;
+	}
+}
+
+
 @media screen and (max-width: 480px) {
 	.signature h1 {
 		font-size: 80px;

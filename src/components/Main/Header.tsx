@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
 	return (
 		<div id="head" className="nav-header w-full z-10 absolute py-3">
 			<nav className="w-1/5 ml-auto min-w-min px-4 py-2 flex justify-between">
-				<a className="link px-2" data-value="blog" href="/blog">
+				<Link className="link px-2" data-value="blog" to="/blog">
 					Blog
-				</a>
+				</Link>
 				<a className="link px-2" data-value="contact" href="#contact">
 					Contact
 				</a>
