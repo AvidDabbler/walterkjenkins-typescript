@@ -9,3 +9,10 @@ export interface LessonType {
 	path: string[];
 	name:            string;
 }
+
+
+export interface SelectOption {
+	value: string | number;
+	label: string | number;
+	color: string;
+}

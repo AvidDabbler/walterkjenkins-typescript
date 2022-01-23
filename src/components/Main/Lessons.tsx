@@ -2,9 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { appContext } from "../../context";
 import { Article } from ".";
 import { LessonType } from "../../types";
-import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import Filter from "../../assets/filter.svg";
 
 const initFilters = {
 	tags: [],
@@ -12,34 +10,29 @@ const initFilters = {
 	technology: [],
 };
 
-const animatedComponents = makeAnimated();
-
 export function Lessons() {
 	const [displayedLessons, setDisplayedLessons] = useState([]);
-	const [filters, setFilters] = useState(initFilters);
-	const [activeFilters, setActiveFilters] = useState(initFilters);
-	const [revealFilters, setRevealFilters] = useState(false);
 
-	const { lessons, setLessons } = useContext(appContext);
+	const { setLessons } = useContext(appContext);
 
-	const reduceList = (key: string, request: Array<any>) => {
-		let list = request.reduce((acc: any, cur) => {
-			for (let tag of cur[key]) {
-				// const value = { value: tag, label: tag, isFixed: true }
-				if (!acc.includes(tag)) {
-					acc = [...acc, tag];
-				}
-			}
-			return acc;
-		}, []);
-		list.sort((a: string, b: string) => {
-			if( a > b) return 1
-			else return -1
-		});
-		return list.map((tag: any) => {
-			return { value: tag, label: tag, color: "#FF5630", isFixed: true };
-		});
-	};
+	// const reduceList = (key: string, request: Array<any>) => {
+	// 	let list = request.reduce((acc: any, cur) => {
+	// 		for (let tag of cur[key]) {
+	// 			// const value = { value: tag, label: tag, isFixed: true }
+	// 			if (!acc.includes(tag)) {
+	// 				acc = [...acc, tag];
+	// 			}
+	// 		}
+	// 		return acc;
+	// 	}, []);
+	// 	list.sort((a: string, b: string) => {
+	// 		if (a > b) return 1;
+	// 		else return -1;
+	// 	});
+	// 	return list.map((tag: string) => {
+	// 		return { value: tag, label: tag, color: "#FF5630", isFixed: true };
+	// 	});
+	// };
 
 	const getLessons = async () => {
 		const request = await fetch(
@@ -47,24 +40,22 @@ export function Lessons() {
 		).then((res) => res.json());
 		setLessons(request);
 
-		const tags = reduceList("tags", request)
-		const path = reduceList("path", request)
-		const technology = reduceList("technology", request)
+		// const tags = reduceList("tags", request);
+		// const path = reduceList("path", request);
+		// const technology = reduceList("technology", request);
 
-		setFilters({ tags, path, technology });
+		// setFilters({ tags, path, technology });
 		setDisplayedLessons(request);
 	};
-
-	const updateFilters = () => {};
 
 	useEffect(() => {
 		getLessons();
 		// eslint-disable-next-line
 	}, []);
 
-	useEffect(() => {
-		updateFilters();
-	}, [activeFilters]);
+	// useEffect(() => {
+	// 	updateFilters();
+	// }, [activeFilters]);
 
 	return (
 		<div className="my-auto h-full">
@@ -72,7 +63,7 @@ export function Lessons() {
 			<div className="px-4 flex flex-col w-full h-full bg-blue topo min-h-screen items-center pt-14 text-white mp-14">
 				<div className="my-14">
 					<h1 className="text-3xl">Free Lessons</h1>
-					<div className="flex ml-auto px-4">
+					{/* <div className="flex ml-auto px-4">
 						<button
 							className="ml-auto"
 							onClick={() => setRevealFilters(!revealFilters)}>
@@ -87,7 +78,9 @@ export function Lessons() {
 								}`}>
 								<span className="text-white">Tags</span>
 								<Select
-									className="bg-green-400 rounded-lg"
+									value={activeFilters.tags}
+									onChange={(selected: any) => changeDropDown(selected, "tags")}
+									className="basic-multi-select bg-green-400 rounded-lg"
 									isMulti
 									options={filters.tags}
 								/>
@@ -100,6 +93,8 @@ export function Lessons() {
 								}`}>
 								<span className="text-white">Path</span>
 								<Select
+									value={activeFilters.path}
+									onChange={(selected: any) => changeDropDown(selected, "path")}
 									className="bg-green-400 rounded-lg"
 									options={filters.path}
 								/>
@@ -112,13 +107,18 @@ export function Lessons() {
 								}`}>
 								<span className="text-white">Technology</span>
 								<Select
+									isSearchable
+									value={activeFilters.technology}
+									onChange={(selected: any) =>
+										changeDropDown(selected, "technology")
+									}
 									className="bg-green-400 rounded-lg"
 									isMulti
 									options={filters.technology}
 								/>
 							</div>
 						)}
-					</div>
+					</div> */}
 					<div className="">
 						{displayedLessons.length > 0
 							? displayedLessons.map((el: LessonType) => (
