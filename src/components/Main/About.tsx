@@ -10,9 +10,8 @@ export function About() {
 					<h2 className="text-white text-xl text-center">My Things</h2>
 					<div className="flex flex-col text-white text-center m-6">
 						<Link className="link m-6" to={'/blog'}>Blog</Link>
-						<a className="link m-6" href="http://www.geostack.xyz">GeoStack</a>
 						<a className="link m-6" href="http://git.walterkjenkins.com">GitHub</a>
-						<a className="link m-6" href="http://linkedin.walterkjenkins.com">LinkedIn</a>
+						<a className="link m-6" href="https://www.linkedin.com/in/walter-k-jenkins/">LinkedIn</a>
 					</div>
 				</div>
 			</div>

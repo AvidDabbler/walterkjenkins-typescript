@@ -14,7 +14,6 @@ ReactDOM.render(
 			<Route path="/" element={<App />} />
 			<Route path="/blog" element={<Blog />} />
 			<Route path="/blog/:id" element={<BlogPost />} />
-			<Route path="/free-lessons" element={<FreeLessons />} />
 		</Routes>
 	</HashRouter>,
 	document.getElementById("root"),
