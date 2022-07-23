@@ -1,5 +1,10 @@
 import React from "react";
-import { BackgroundMap, Header, About, Signature } from "./components/Main";
+import {
+	BackgroundMap,
+	Header,
+	About,
+	Signature,
+} from "./components/Main";
 import "./App.scss";
 
 const App = () => (

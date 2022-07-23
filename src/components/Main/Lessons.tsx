@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { notionApiUrl } from "../../config";
 import { appContext } from "../../context";
 import { LessonType } from "../../types";
 import { Lesson } from "./Lesson";
@@ -9,9 +10,7 @@ export function Lessons() {
 	const { setLessons } = useContext(appContext);
 
 	const getLessons = async () => {
-		const request = await fetch(
-			"https://notion-api.splitbee.io/v1/table/093530426e944244b78b868a3738ab42",
-		).then((res) => res.json());
+		const request = await fetch(notionApiUrl).then((res) => res.json());
 		setLessons(request);
 
 		setDisplayedLessons(request);

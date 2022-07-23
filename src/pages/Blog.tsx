@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { AppProvider } from "../context";
-import { SignupButton, Header, Articles } from "../components/Main";
+import { Header, Articles } from "../components/Main";
 
-export default function Blog() {
+export function Blog() {
 	const [articles, setArticles] = useState<any>([]);
 
 	return (
@@ -10,7 +10,6 @@ export default function Blog() {
 			<div>
 				<Header />
 				<Articles />
-				<SignupButton />
 			</div>
 		</AppProvider>
 	);

@@ -3,17 +3,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
-import { Blog, FreeLessons } from "./pages";
+import { Blog } from "./pages/Blog";
 import { BlogPost } from "./components/Main";
+import { paths } from "./config";
 
 import "./index.css";
+import { Contact } from "./pages/Contact";
 
 ReactDOM.render(
 	<HashRouter>
 		<Routes>
-			<Route path="/" element={<App />} />
-			<Route path="/blog" element={<Blog />} />
-			<Route path="/blog/:id" element={<BlogPost />} />
+			<Route path={paths.home} element={<App />} />
+			<Route path={paths.blog} element={<Blog />} />
+			<Route path={paths.blogArticle} element={<BlogPost />} />
+			<Route path={paths.contact} element={<Contact />} />
 		</Routes>
 	</HashRouter>,
 	document.getElementById("root"),
