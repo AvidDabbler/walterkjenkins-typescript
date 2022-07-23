@@ -34,11 +34,15 @@ export function BlogPost() {
 				<div className="flex flex-col w-full h-full min-h-screen bg-blue topo items-center pt-14 text-white mp-14">
 					<div className="my-14 p-14 lg:w-1/2 md:w-2/3">
 						{recordMap && (
-							<NotionRenderer blockMap={recordMap} fullPage={true} />
+							<NotionRenderer
+								hideHeader={true}
+								blockMap={recordMap}
+								fullPage={true}
+							/>
 						)}
 					</div>
 				</div>
-			<Footer />
+				<Footer />
 			</div>
 		</div>
 	);
