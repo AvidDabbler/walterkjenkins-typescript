@@ -150,7 +150,8 @@ body,
 .mapboxgl-canvas-container,
 .mapboxgl-canvas,
 .mapboxgl-canvas {
-	height: 100%;
+	height: 100vh;
+	width: 100vw;
 }
 
 #map {

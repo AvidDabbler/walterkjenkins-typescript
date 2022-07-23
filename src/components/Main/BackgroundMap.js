@@ -14,8 +14,8 @@ export const BackgroundMap = () => {
 		lat: 38.6447868,
 		zoom: 10.9,
 		map: [],
-		width: window.innerWidth,
-		height: window.innerHeight,
+		width: '100%',
+		height: '100%',
 	};
 
 	useEffect(() => {
