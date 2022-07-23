@@ -3,7 +3,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
-import { Blog, FreeLessons } from "./pages";
+import { Blog } from "./pages";
 import { BlogPost } from "./components/Main";
 
 import "./index.css";
