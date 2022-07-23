@@ -15,7 +15,7 @@ jobs:
       - name: Installing Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Installing dependencies
         run: npm install
       - name: Building project
@@ -26,8 +26,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-
+      - name: setup env
+        run: echo Hello world $secrets.REACT_APP_MB_ACCESS_TOKEN
+        env:
+          REACT_APP_MY_SECRET: ${{ secrets.REACT_APP_MB_ACCESS_TOKEN }}
       - name: Deploy to S3 bucket
         run: aws s3 sync ./build/ s3://walterkjenkins.com --delete
       - name: Invalidate cloudfront
-        run: aws cloudfront create-invalidation --distribution-id E33J08VMYO0P49 --paths "/*"
+        run:
+          aws cloudfront create-invalidation --distribution-id E33J08VMYO0P49
+          --paths "/*"

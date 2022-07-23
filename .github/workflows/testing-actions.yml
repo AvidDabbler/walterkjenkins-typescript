@@ -1,0 +1,18 @@
+# Name of workflow as seen in Github actions tab
+name: testing-env
+# Run workflow only on push to dev branch
+on:
+  push:
+    branches:
+      - master
+jobs:
+  # To build the project
+  build-and-deploy-to-s3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+      - name: setup env
+        run: echo Hello world $secrets.REACT_APP_MB_ACCESS_TOKEN
+        env:
+          REACT_APP_MY_SECRET: ${{ secrets.REACT_APP_MB_ACCESS_TOKEN }}
