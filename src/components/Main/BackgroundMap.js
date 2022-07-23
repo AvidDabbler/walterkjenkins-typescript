@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { FeedMessage } from "../../controllers/gtfs-realtime.browser.proto.js";
 import "mapbox-gl/dist/mapbox-gl.css";
-import mapboxgl, { GeoJSONSource, Map } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import Pbf from "pbf";
 
 
@@ -10,7 +10,7 @@ import Pbf from "pbf";
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 var pburl =
-	"https://www.metrostlouis.org/RealTimeData/StlRealTimeVehicles.pb?cacheBust=" +
+	"https://afternoon-lowlands-09860.herokuapp.com/" + "https://www.metrostlouis.org/RealTimeData/StlRealTimeVehicles.pb?cacheBust=" +
 	new Date().valueOf();
 
 // converts data to geojson
@@ -50,9 +50,6 @@ export const BackgroundMap = () => {
 	};
 
 	const [state, setState] = useState(initialState);
-	// const [map, setMap] = useState<Map | undefined>(undefined);
-	// const [context, setContext] = useState<any | undefined>(undefined);
-
 	// start of helper functions
 	const getData = async () => {
 		const url =
