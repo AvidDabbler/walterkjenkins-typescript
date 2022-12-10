@@ -57,7 +57,7 @@ export function Articles() {
 			.reduce((acc: { [k: string]: NotionItem[] }, cur: NotionItem) => {
 				const date = new Date(cur.publish_date);
 				const month = date.getMonth();
-				const yearMonth = `${months[month]} - ${date.getFullYear()}`;
+				const yearMonth = `${months[month]} ${date.getFullYear()}`;
 				if (!acc[yearMonth]) {
 					acc[yearMonth] = [cur];
 				} else {
