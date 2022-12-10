@@ -11,15 +11,16 @@ export interface LessonType {
 }
 
 export interface ArticleType {
-	id:              string;
-	tags:            string[];
-	link:            string;
-	technology:      string[];
-	experience:      string;
-	author:          string[];
-	file_under:    string;
+	id: string;
+	tags: string[];
+	link: string;
+	technology: string[];
+	experience: string;
+	author: string[];
+	file_under: string;
+	publish_date: string;
 	path: string[];
-	name:            string;
+	name: string;
 }
 
 export interface SelectOption {

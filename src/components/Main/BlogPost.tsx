@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { NotionAPI } from "notion-client";
-// import { NotionRenderer } from "react-notion-x";
 import { NotionRenderer } from "react-notion";
 import { useParams } from "react-router";
 import "react-notion/src/styles.css";
@@ -32,7 +30,7 @@ export function BlogPost() {
 				<Header />
 				<div className="bg-orange h-px"></div>
 				<div className="flex flex-col w-full h-full min-h-screen bg-blue topo items-center pt-14 text-white mp-14">
-					<div className="my-14 p-14 lg:w-1/2 md:w-2/3">
+					<div className="my-14 p-14 w-full md:w-2/3 ">
 						{recordMap && (
 							<NotionRenderer
 								hideHeader={true}

@@ -2,8 +2,6 @@ import Pbf from "pbf";
 import { pburl } from "../config";
 import { FeedMessage } from "../controllers/gtfs-realtime.browser.proto";
 
-// export const markerAnnimation = ;
-
 export const onAdd = (canvas, size) => {
 	canvas.width = size;
 	canvas.height = size;

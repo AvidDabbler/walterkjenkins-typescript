@@ -1,13 +1,13 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { appContext } from "../../context";
 import { Article } from ".";
-import { LessonType } from "../../types";
+import { ArticleType } from "../../types";
 import { Header } from ".";
 
 export const ArticlesList = ({ articles }: { articles: any[] }) => {
 	return (
 		<Fragment>
-			{articles.map((el: LessonType, i: number) => (
+			{articles.map((el: ArticleType, i: number) => (
 				<Article key={i} article={el} />
 			))}
 		</Fragment>
