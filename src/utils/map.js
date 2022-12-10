@@ -74,8 +74,9 @@ export const addSource = (map, geoJson) => {
 };
 
 export const getVehicles = async (pburl) => {
-	const url = pburl + new Date().valueOf();
-	let response = await fetch(url);
+	let response = await fetch(pburl).catch((e) => {
+		console.error(e);
+	});
 	if (response.ok) {
 		const bufferRes = await response.arrayBuffer();
 		const pbf = new Pbf(new Uint8Array(bufferRes));
